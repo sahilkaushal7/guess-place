@@ -5,4 +5,4 @@ class ImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Image
-        fields = ['location', 'url', 'id']
+        fields = ['location', 'url', 'id', 'user']

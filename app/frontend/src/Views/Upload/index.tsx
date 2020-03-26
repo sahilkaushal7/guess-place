@@ -1,27 +1,51 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
 import './styles.css';
+import { postImage } from './requests';
 
-interface UploadProps extends RouteComponentProps { }
-
+interface UploadProps {
+  urlParams: {
+    userId?: number;
+  }
+}
 
 const Upload: React.FC<UploadProps> = (props) => {
+  const [image, setImage] = React.useState();
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    const username = e.target.elements.username.value;
-    const email = e.target.elements.email.value;
-    const password = e.target.elements.password.value;
-    props.history.push('/');
+    const userId = props.urlParams.userId;
+    const location = e.target.elements.location.value;
+    const answers = e.target.elements.answers.value;
+    const formData = new FormData();
+    if (image) {
+      formData.append('url', image!, image!.name);
+    }
+    location && formData.append('location', location);
+    answers && formData.append('answers', answers);
+
+    if (userId) {
+      formData.append('user', String(userId));
+      postImage(formData);
+    }
   }
+
+  const handleImageChange = (e: any) => {
+    setImage(e.target.files[0]);
+  };
+
   return (
     <div className={'upload'}>
       <form
         onSubmit={(e) => handleSubmit(e)}
       >
         <p>Please fill in the Upload details</p>
-        <input type={'text'} name={'username'} placeholder={'Enter your username'} />
-        <input type={'email'} name={'email'} placeholder={'Enter your email'} />
-        <input type={'password'} name={'password'} placeholder={'Enter your password'} />
+        <input type={'text'} name={'location'} placeholder={'Enter location'} />
+        <input type={'text'} name={'answers'} placeholder={'Enter possible answers'} />
+        <input
+          type={'file'}
+          accept={"image/png, image/jpeg"}
+          onChange={handleImageChange}
+        />
         <input type={'submit'} name={'Upload'} />
         <br />
       </form>

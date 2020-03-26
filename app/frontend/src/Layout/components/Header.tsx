@@ -3,22 +3,23 @@ import { NavLink, withRouter, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../Store/actions/auth';
 
-interface HeaderProps extends RouteComponentProps{
+interface HeaderState { }
+
+interface HeaderProps extends RouteComponentProps, HeaderState {
   isAuth: boolean;
   logout: () => void;
+  userId: number;
 }
-
-interface HeaderState { }
 
 class Header extends React.Component<HeaderProps, HeaderState> {
   render() {
-    const { isAuth, logout } = this.props;
+    const { isAuth, logout, userId } = this.props;
     return (
       <div className='navbar'>
         {isAuth ?
           <>
             <NavLink to={'/'} exact>Home</NavLink>
-            <NavLink to={'/upload'}>Upload Image</NavLink>
+            <NavLink to={`${userId}/upload`}>Upload Image</NavLink>
             <a href={'/#'} className='right' onClick={logout}>Logout</a>
           </> :
           <>
@@ -30,10 +31,17 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   }
 };
 
+
+const mapStateToProps = (state: any) => {
+  return {
+    userId: state.userId,
+  }
+}
+
 const mapDispatchToProps = (dispatch: any) => {
   return {
     logout: () => dispatch(actions.logout())
   }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(Header));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
