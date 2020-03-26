@@ -1,13 +1,15 @@
 import * as React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
 import BaseRouter from './router';
+import Layout from './Layout';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <div>
       <Router>
-        <BaseRouter />
+        <Layout >
+          <BaseRouter />
+        </Layout>
       </Router>
     </div>
   );

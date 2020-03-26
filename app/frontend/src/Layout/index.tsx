@@ -1,8 +1,11 @@
 import * as React from 'react';
+import Header from './components/Header';
+import './styles.css';
 
-const Layout: React.FC = () => (
+const Layout: React.FC = (props) => (
   <div>
-    Layout
+    <Header />
+    {props.children}
   </div>
 );
 
