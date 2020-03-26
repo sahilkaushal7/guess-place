@@ -15,8 +15,6 @@ enum HTTPMethods {
 
 // default settings 
 const getAuthToken = () => localStorage.getItem('token');
-
-console.log(getAuthToken())
 axios.defaults.baseURL = 'http://localhost:8000';
 
 // configured request

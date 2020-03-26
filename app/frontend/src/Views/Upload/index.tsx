@@ -5,7 +5,8 @@ import { postImage } from './requests';
 interface UploadProps {
   urlParams: {
     userId?: number;
-  }
+  },
+  history: any;
 }
 
 const Upload: React.FC<UploadProps> = (props) => {
@@ -27,6 +28,7 @@ const Upload: React.FC<UploadProps> = (props) => {
       formData.append('user', String(userId));
       postImage(formData);
     }
+    props.history.push('/');
   }
 
   const handleImageChange = (e: any) => {

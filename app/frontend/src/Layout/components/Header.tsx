@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { NavLink, withRouter, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../../Store/actions/auth';
+import * as actions from '../../store/actions/auth';
 
 interface HeaderState { }
 

@@ -3,9 +3,10 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  width: 800px;
+  width: 750px;
   border-radius: 3px;
   box-shadow: 0 0 2px 1px #666;
+  margin: 10px 0;
 }
 
 .post-img {
@@ -16,9 +17,10 @@
 
 .post-guesses {
   padding: 20px;
+  word-break: break-all;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
   .post {
     width: 100%;
   }

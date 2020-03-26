@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import BaseRouter from './router';
-import Layout from './Layout';
+import Layout from './layout';
 import { connect } from 'react-redux';
-import * as actions from './Store/actions/auth';
+import * as actions from './store/actions/auth';
 
 interface AppProps {
   isAuthenticated: boolean;

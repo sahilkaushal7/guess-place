@@ -5,7 +5,7 @@ import App from './App';
 import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import reducer from './Store/reducers/auth';
+import reducer from './store/reducers/auth';
 import './index.css';
 
 declare global {

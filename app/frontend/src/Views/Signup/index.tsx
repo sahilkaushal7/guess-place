@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import * as actions from '../../Store/actions/auth';
+import * as actions from '../../store/actions/auth';
 import { connect } from 'react-redux';
 import './styles.css';
 
