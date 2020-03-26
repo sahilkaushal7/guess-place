@@ -1,12 +1,12 @@
 # Use an official node runtime as a parent image
-FROM node:8
+FROM node:10-stretch-slim
 
 WORKDIR /app/
 
 # Install dependencies
 COPY package.json yarn.lock /app/
 
-RUN npm install
+RUN yarn install
 
 # Add rest of the client code
 COPY . /app/
