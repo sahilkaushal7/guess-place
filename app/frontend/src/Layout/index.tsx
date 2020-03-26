@@ -2,10 +2,14 @@ import * as React from 'react';
 import Header from './components/Header';
 import './styles.css';
 
-const Layout: React.FC = (props) => (
+interface LayoutProps {
+  isAuthenticated: boolean;
+}
+
+const Layout: React.FC<LayoutProps> = (props) => (
   <div>
-    <Header />
-    {props.children}
+    <Header isAuth={props.isAuthenticated}/>
+    <div className={'layout'}>{props.children}</div>
   </div>
 );
 

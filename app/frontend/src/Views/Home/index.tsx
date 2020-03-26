@@ -11,11 +11,14 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className='home'>
+    <div>
       <h2>Guess The Place</h2>
       {posts.map((post, i) =>
         <div key={i} className='post'>
           <img className='post-img' src={post.url} alt={`guess number ${i}`}/>
+          <div className='post-guesses'>
+            <b>Guesses :</b> 
+          </div>
         </div>)}
     </div>
   );
