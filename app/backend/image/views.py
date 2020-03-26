@@ -7,7 +7,7 @@ from rest_framework.generics import (
     UpdateAPIView
 )
 from .models import Image
-from .serializers import ImageSerializer
+from .serializers import ImageSerializer, PostImageSerializer
 
 
 class ImageListView(ListAPIView):
@@ -24,17 +24,17 @@ class ImageDetailView(RetrieveAPIView):
 
 class ImageCreateView(CreateAPIView):
     queryset = Image.objects.all()
-    serializer_class = ImageSerializer
+    serializer_class = PostImageSerializer
     permission_classes = (permissions.IsAuthenticated, )
 
 
 class ImageUpdateView(UpdateAPIView):
     queryset = Image.objects.all()
-    serializer_class = ImageSerializer
+    serializer_class = PostImageSerializer
     permission_classes = (permissions.IsAuthenticated, )
 
 
 class ImageDeleteView(DestroyAPIView):
     queryset = Image.objects.all()
-    serializer_class = ImageSerializer
+    serializer_class = PostImageSerializer
     permission_classes = (permissions.IsAuthenticated, )

@@ -14,13 +14,13 @@ const Home: React.FC = () => {
   return (
     <div>
       <h2>Guess The Place</h2>
-      {posts.map((post, i) =>
+      {posts.map((post, i) => 
         <div key={i} className='post'>
           <img className='post-img' src={post.url} alt={`guess number ${i}`} />
           <div className='post-guesses'>
             <p>by: <b>{post.user.username}</b></p>
             <b>Guesses :</b>
-            <Guesses imageId={post.id} />
+            <Guesses postId={post.id} />
           </div>
         </div>)}
     </div>

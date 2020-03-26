@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     'image.apps.ImageConfig',
+    'guess.apps.GuessConfig',
 ]
 
 SITE_ID = 1

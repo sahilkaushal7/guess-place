@@ -9,16 +9,16 @@ class UserField(serializers.Field):
         }
         return user
 
-class ImageSerializer(serializers.ModelSerializer):
+class GuessSerializer(serializers.ModelSerializer):
     user = UserField(source='*')
 
     class Meta:
-        model = models.Image
-        fields = ['location', 'url', 'id', 'user']
+        model = models.Guess
+        fields = ['guess', 'id', 'user']
 
 
-class PostImageSerializer(serializers.ModelSerializer):
+class PostGuessSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = models.Image
-        fields = ['location', 'url', 'id', 'user']
+        model = models.Guess
+        fields = ['guess', 'id', 'user']
