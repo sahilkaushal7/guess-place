@@ -1,9 +1,9 @@
 import * as React from 'react';
-import Home from './views/Home';
-import Profile from './views/Profile';
-import Login from './views/Login';
-import SignUp from './views/Signup';
-import Upload from './views/Upload';
+import Home from './Views/Home';
+import Profile from './Views/Profile';
+import Login from './Views/Login';
+import SignUp from './Views/Signup';
+import Upload from './Views/Upload';
 import { Switch, Route } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 

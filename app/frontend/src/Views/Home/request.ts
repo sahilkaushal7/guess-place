@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import { get, post } from '../../lib/utils';
+import { get, post } from '../../Lib/utils';
 
 const postUrl = 'http://localhost:8000/images/';
 const getGuessesUrl = 'http://localhost:8000/guesses/image/';

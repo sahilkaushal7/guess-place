@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import { post } from '../../lib/utils';
+import { post } from '../../Lib/utils';
 
 const postUrl = 'http://localhost:8000/images/create/';
 

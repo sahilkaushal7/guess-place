@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import { get, put } from '../../lib/utils';
+import { get, put } from '../../Lib/utils';
 
 const getProfileUrl = 'http://localhost:8000/userprofile/';
 
