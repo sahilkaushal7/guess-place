@@ -19,7 +19,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         {isAuth ?
           <>
             <NavLink to={'/'} exact>Home</NavLink>
-            <NavLink to={`${userId}/upload`}>Upload Image</NavLink>
+            <NavLink to={`/${userId}/upload`}>Upload Image</NavLink>
+            <NavLink to={`/${userId}/profile`}>Profile</NavLink>
             <a href={'/#'} className='right' onClick={logout}>Logout</a>
           </> :
           <>

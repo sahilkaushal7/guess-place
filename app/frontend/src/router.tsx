@@ -14,12 +14,13 @@ interface BaseRouterProps {
 const BaseRouter: React.FC<BaseRouterProps> = ({ isAuthenticated }) => (
   <Switch>
     <Route exact path='/' render={() => <Home isAuth={isAuthenticated} />} />
-    <Route exact path='/:userId/profile' component={Profile} />
-    <Route exact path='/:userId/upload' render={(props: RouteComponentProps) =>
+    <Route exact path='/:id/profile' render={(props: RouteComponentProps) =>
+      <Profile urlParams={props.match.params} />} />
+    <Route exact path='/:id/upload' render={(props: RouteComponentProps) =>
       <Upload urlParams={props.match.params} history={props.history} />} />
     <Route exact path='/login' component={Login} />
     <Route exact path='/signup' component={SignUp} />
   </Switch>
 )
 
-export default BaseRouter;
+export default (BaseRouter);

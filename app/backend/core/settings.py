@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     'image.apps.ImageConfig',
     'guess.apps.GuessConfig',
+    'userprofile.apps.UserprofileConfig',
 ]
 
 SITE_ID = 1

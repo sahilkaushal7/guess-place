@@ -31,12 +31,12 @@ const Guesses: React.FC<GuessesProps> = (props) => {
       props.postId && formData.append('image', String(props.postId));
       props.userId && formData.append('user', String(props.userId));
       formData.append('correct', String(correct));
-      submitGuess(formData).then(() =>
-        alert('Guess Submitted')
-      ).catch(() =>
-        alert('Something went wrong')
+      submitGuess(formData).then(() => {
+        alert('Guess Added Successfully')
+        window.location.reload();
+      }).catch(() =>
+        alert('Something Went Wrong!')
       );
-      window.location.reload();
     });
 
   };

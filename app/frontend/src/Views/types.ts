@@ -16,3 +16,11 @@ export interface Guess {
   user: User;
   correct: boolean;
 }
+
+export interface UserProfile {
+  name: string;
+  age: number;
+  place: string;
+  user: User;
+  id: number;
+}

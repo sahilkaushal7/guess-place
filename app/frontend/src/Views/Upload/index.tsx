@@ -4,7 +4,7 @@ import { postImage } from './requests';
 
 interface UploadProps {
   urlParams: {
-    userId?: number;
+    id?: number;
   },
   history: any;
 }
@@ -13,7 +13,7 @@ const Upload: React.FC<UploadProps> = (props) => {
   const [image, setImage] = React.useState();
 
   const handleSubmit = (e: any) => {
-    const userId = props.urlParams.userId;
+    const userId = props.urlParams.id;
     const location = e.target.elements.location.value;
     const formData = new FormData();
     if (image) {
