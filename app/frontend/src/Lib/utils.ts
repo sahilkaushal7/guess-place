@@ -22,7 +22,7 @@ axios.defaults.baseURL = 'http://localhost:8000';
 const configRequest = (method: HTTPMethods) => (url: string, data ?: any, needsAuth ?: boolean) => {
   const headers = {} as GenericObj<String>;
   let withCredentials = false;
-
+  
   if (needsAuth) {
     withCredentials = true;
     headers.Authorization = `Token ${getAuthToken()}`;

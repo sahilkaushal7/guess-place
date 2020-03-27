@@ -14,11 +14,11 @@ class GuessSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Guess
-        fields = ['guess', 'id', 'user']
+        fields = ['guess', 'id', 'user', 'image']
 
 
 class PostGuessSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Guess
-        fields = ['guess', 'id', 'user']
+        fields = ['guess', 'id', 'user', 'image']

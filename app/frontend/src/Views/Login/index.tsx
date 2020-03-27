@@ -18,7 +18,6 @@ class Login extends React.Component<LoginProps, LoginState> {
       const password = e.target.elements.password.value;
       this.props.onAuth(userName, password);
       this.props.history.push('/');
-
     }
     return (
       <div className={'login'}>

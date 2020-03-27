@@ -5,14 +5,17 @@ import Layout from './layout';
 import { connect } from 'react-redux';
 import * as actions from './store/actions/auth';
 
-interface AppProps {
+interface AppState {
+  isLoading: boolean;
+  error: boolean;
+}
+
+interface AppProps extends AppState {
   isAuthenticated: boolean;
   onTryAutoSignup: () => void;
 }
 
-interface AppState { }
-
-class App extends React.Component<AppProps, AppState> {
+class App extends React.Component<AppProps, {}> {
 
   componentDidMount() {
     this.props.onTryAutoSignup();
@@ -22,8 +25,14 @@ class App extends React.Component<AppProps, AppState> {
     return (
       <div>
         <Router>
-          <Layout isAuthenticated={this.props.isAuthenticated}>
-            <BaseRouter />
+          <Layout
+            isAuthenticated={this.props.isAuthenticated}
+            isLoading={this.props.isLoading}
+            error={this.props.error}
+          >
+            <BaseRouter
+              isAuthenticated={this.props.isAuthenticated}
+            />
           </Layout>
         </Router>
       </div >
@@ -34,7 +43,9 @@ class App extends React.Component<AppProps, AppState> {
 
 const mapStateToProps = (state: any) => {
   return {
-    isAuthenticated: state.token !== null
+    isAuthenticated: state.token !== null,
+    isLoading: state.loading,
+    error: state.error,
   }
 }
 

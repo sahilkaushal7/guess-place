@@ -15,5 +15,5 @@ urlpatterns = [
     path('<pk>', GuessDetailView.as_view()),
     path('<pk>/update/', GuessUpdateView.as_view()),
     path('<pk>/delete/', GuessDeleteView.as_view()),
-    path('?image=<pk>/', GuessForImageListView.as_view()),
+    path('image/<pk>/', GuessForImageListView.as_view()),
 ]

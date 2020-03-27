@@ -4,12 +4,19 @@ import './styles.css';
 
 interface LayoutProps {
   isAuthenticated: boolean;
+  isLoading: boolean;
+  error: boolean;
 }
 
 const Layout: React.FC<LayoutProps> = (props) => (
   <div>
-    <Header isAuth={props.isAuthenticated}/>
-    <div className={'layout'}>{props.children}</div>
+    {props.isLoading ?
+      <h1 className={'layout'}>...loading</h1> :
+      <>
+        <Header isAuth={props.isAuthenticated} />
+        <div className={'layout'}>{props.children}</div>
+      </>
+    }
   </div>
 );
 

@@ -12,11 +12,11 @@ from .serializers import GuessSerializer, PostGuessSerializer
 
 class GuessForImageListView(ListAPIView):
     serializer_class = GuessSerializer
-    permission_classes = (permissions.IsAuthenticated, )
+    permission_classes = (permissions.AllowAny, )
 
     def get_queryset(self):
-        image = self.kwargs['image']
-        return Guess.objects.filter(Guess__image__id=image)
+        image = self.kwargs['pk']
+        return Guess.objects.filter(image__id=image)
 
 class GuessListView(ListAPIView):
     queryset = Guess.objects.all()
