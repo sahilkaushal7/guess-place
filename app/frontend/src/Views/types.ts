@@ -14,4 +14,5 @@ export interface Guess {
   guess: string;
   id: number;
   user: User;
+  correct: boolean;
 }

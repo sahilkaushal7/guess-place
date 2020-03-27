@@ -25,8 +25,8 @@ class Login extends React.Component<LoginProps, LoginState> {
           onSubmit={(e) => handleSubmit(e)}
         >
           <p>Please fill in the login details</p>
-          <input type={'text'} name={'username'} placeholder={'Enter your username'} />
-          <input type={'password'} name={'password'} placeholder={'Enter your password'} />
+          <input type={'text'} name={'username'} placeholder={'Enter your username'} required/>
+          <input type={'password'} name={'password'} placeholder={'Enter your password'} required/>
           <input type={'submit'} name={'Login'} />
           <br />
         </form>

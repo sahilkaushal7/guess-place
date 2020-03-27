@@ -14,7 +14,15 @@ class ImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Image
-        fields = ['location', 'url', 'id', 'user']
+        fields = ['url', 'id', 'user']
+
+
+class ImageDetailSerializer(serializers.ModelSerializer):
+    user = UserField(source='*')
+
+    class Meta:
+        model = models.Image
+        fields = ['url', 'id', 'user', 'location']
 
 
 class PostImageSerializer(serializers.ModelSerializer):

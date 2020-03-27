@@ -13,22 +13,20 @@ const Upload: React.FC<UploadProps> = (props) => {
   const [image, setImage] = React.useState();
 
   const handleSubmit = (e: any) => {
-    e.preventDefault();
     const userId = props.urlParams.userId;
     const location = e.target.elements.location.value;
-    const answers = e.target.elements.answers.value;
     const formData = new FormData();
     if (image) {
       formData.append('url', image!, image!.name);
     }
     location && formData.append('location', location);
-    answers && formData.append('answers', answers);
 
     if (userId) {
       formData.append('user', String(userId));
       postImage(formData);
     }
     props.history.push('/');
+    window.location.reload();
   }
 
   const handleImageChange = (e: any) => {
@@ -41,12 +39,17 @@ const Upload: React.FC<UploadProps> = (props) => {
         onSubmit={(e) => handleSubmit(e)}
       >
         <p>Please fill in the Upload details</p>
-        <input type={'text'} name={'location'} placeholder={'Enter location'} />
-        <input type={'text'} name={'answers'} placeholder={'Enter possible answers'} />
+        <input
+          type={'text'}
+          name={'location'}
+          placeholder={'Enter possible location seperated by `,`'}
+          required
+        />
         <input
           type={'file'}
           accept={"image/png, image/jpeg"}
           onChange={handleImageChange}
+          required
         />
         <input type={'submit'} name={'Upload'} />
         <br />

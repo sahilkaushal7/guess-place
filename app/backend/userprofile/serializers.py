@@ -5,20 +5,14 @@ class UserField(serializers.Field):
     def to_representation(self, value):
         user = {
             'username': value.user.username,
+            'email': value.user.email,
             'id': value.user.id,
         }
         return user
 
-class GuessSerializer(serializers.ModelSerializer):
+class UserProfileSerializer(serializers.ModelSerializer):
     user = UserField(source='*')
 
     class Meta:
-        model = models.Guess
-        fields = ['guess', 'id', 'user', 'image', 'correct']
-
-
-class PostGuessSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = models.Guess
-        fields = ['guess', 'id', 'user', 'image', 'correct']
+        model = models.UserProfile
+        fields = ['name', 'place', 'age', 'id', 'user']

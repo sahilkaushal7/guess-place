@@ -27,9 +27,9 @@ class Signup extends React.Component<SignupProps, SignupState> {
           onSubmit={(e) => handleSubmit(e)}
         >
           <p>Please fill in the Signup details</p>
-          <input type={'text'} name={'username'} placeholder={'Enter your username'} />
-          <input type={'email'} name={'email'} placeholder={'Enter your email'} />
-          <input type={'password'} name={'password'} placeholder={'Enter your password'} />
+          <input type={'text'} name={'username'} placeholder={'Enter your username'} required/>
+          <input type={'email'} name={'email'} placeholder={'Enter your email'} required/>
+          <input type={'password'} name={'password'} placeholder={'Enter your password'} required/>
           <input type={'submit'} name={'Signup'} />
           <br />
         </form>

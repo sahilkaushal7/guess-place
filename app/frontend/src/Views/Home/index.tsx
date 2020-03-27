@@ -23,7 +23,7 @@ const Home: React.FC<HomeProps> = ({isAuth}) => {
       <div key={i} className='post'>
         <img className='post-img' src={post.url} alt={`guess number ${i}`} />
         <div className='post-guesses'>
-          <p>by: <b>{post.user.username}</b></p>
+          <p>Posted By: <b>{post.user.username}</b></p>
           <b>Guesses :</b>
           <Guesses postId={post.id} userId={post.user.id}/>
         </div>
